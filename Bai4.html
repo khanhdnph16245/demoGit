@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        input.ng-invalid{
+            background-image: url('delete.png');
+            background-position: center right;
+            background-repeat: no-repeat;
+            border: 1px dotted red;
+        }
+    </style>
+  </head>
+  <body ng-app="myApp">
+    <div class="container" ng-controller="studentCtrl">
+        <div class="row">
+            <div class="col">
+                <form name="studentForm">
+                    <div class="card">
+                        <div class="card-header">
+                            THÔNG TIN SINH VIÊN
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                              <label for="fullname">Họ và tên</label>
+                              <input type="text" required maxlength="25" ng-model="fullname"
+                                class="form-control" name="fullname" id="fullname" aria-describedby="fullnamehelpId" placeholder="">
+                              <small ng-show="studentForm.fullname.$invalid" 
+                                id="fullnamehelpId" class="form-text text-muted">Vui lòng nhập họ và tên</small>
+                            </div>
+                            <div class="form-group">
+                              <label for="mark">Điểm</label>
+                              <input type="number" ng-model="mark" min="0" max="10"
+                                class="form-control" name="mark" id="mark" aria-describedby="markhelpId" placeholder="">
+                              <small ng-show="studentForm.mark.$invalid" 
+                                id="markhelpId" class="form-text text-muted">Điểm phải từ 0 đến 10</small>
+                            </div>
+                            <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="email" ng-model="email" required
+                                class="form-control" name="email" id="email" aria-describedby="emailhelpId" placeholder="">
+                              <small ng-show="studentForm.email.$invalid" id="emailhelpId" class="form-text text-muted">Email không hợp lệ</small>
+                            </div>
+                            <div class="form-group">
+                              <label for="platenumber">Số xe</label>
+                              <input type="text" ng-model="platenumber" pattern="5\d-[A-Z]\d-((\d{4})|(\d{3}\.\d{2}))"
+                                class="form-control" name="platenumber" id="platenumber" aria-describedby="platenumberhelpId" placeholder="">
+                              <small ng-show="studentForm.platenumber.$invalid" id="platenumberhelpId" class="form-text text-muted">Số xe không đúng định dạng Sài Gòn</small>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <input type="button" value="luu" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <div ng-if="studentForm.$valid" class="alert alert-primary" role="alert">
+                        <strong>Bạn đã nhập đúng</strong>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/Bai4.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
